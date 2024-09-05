@@ -3,7 +3,7 @@ const bodyParser = require('body-parser'); // latest version of exressJS now com
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex')
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 
 trx.commit();
@@ -15,6 +15,7 @@ const db = knex({
     user: 'smart_brain_3c2u_user', 
     password: '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
     database: 'smart_brain_3c2u',
+    port: port,
     ssl: { rejectUnauthorized: false }
   }
 });
