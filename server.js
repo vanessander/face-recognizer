@@ -3,7 +3,7 @@ const bodyParser = require('body-parser'); // latest version of exressJS now com
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex')
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 
 trx.commit();
@@ -12,10 +12,9 @@ const db = knex({
   client: 'pg',
   connection: {
     host: 'dpg-crcggmrv2p9s73cfle6g-a.singapore-postgres.render.com',
-    user: 'smart_brain_3c2u_user',
+    user: 'smart_brain_3c2u_user', 
     password: '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
     database: 'smart_brain_3c2u',
-    port: 5432,
     ssl: { rejectUnauthorized: false }
   }
 });
