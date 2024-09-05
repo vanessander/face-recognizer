@@ -16,7 +16,9 @@ const db = knex({
     host : 'dpg-crcggmrv2p9s73cfle6g-a.singapore-postgres.render.com',
     user : 'smart_brain_3c2u_user',
     password : '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
-    database : 'smart_brain_3c2u'
+    database : 'smart_brain_3c2u',
+    port: port,
+    ssl: { rejectUnauthorized: false }
   }
 });
 
