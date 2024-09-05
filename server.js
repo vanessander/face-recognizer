@@ -17,7 +17,7 @@ const db = knex({
     user : 'smart_brain_3c2u_user',
     password : '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
     database : 'smart_brain_3c2u',
-    port: port,
+    port: 5432,
     ssl: { rejectUnauthorized: false }
   }
 });
@@ -28,13 +28,27 @@ const app = express();
 app.use(cors())
 app.use(express.json()); // latest version of exressJS now comes with Body-Parser!
 
-app.get('/', (req, res)=> { res.send(db.users) })
+app.get('/', (req, res) => {
+  db.select('*').from('users')
+    .then(users => {
+      res.json(users);
+    })
+    .catch(err => res.status(400).json('unable to get users'));
+});
+
 app.post('/signin', signin.handleSignin(db, bcrypt))
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db)})
 app.put('/image', (req, res) => { image.handleImage(req, res, db)})
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
 
-app.listen(port, ()=> {
-  console.log(`app is running on port ${port}`);
-})
+// app.listen(port, ()=> {
+//   console.log(`app is running on port ${port}`);
+// })
+app.listen(port, (err) => {
+  if (err) {
+    console.error('Error starting the server:', err);
+  } else {
+    console.log(`App is running on port ${port}`);
+  }
+});
