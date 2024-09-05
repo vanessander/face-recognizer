@@ -10,10 +10,12 @@ const db = knex({
   client: 'pg',
   connection: {
     hostname : 'dpg-crcggmrv2p9s73cfle6g-a',
+    host : '10.210.35.181',
     username : 'smart_brain_3c2u_user',
     password : '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
     database : 'smart_brain_3c2u',
-    internalurl: 'postgresql://smart_brain_3c2u_user:27RQH4rnFIwagljwZdUwjyYYBsAuVVY1@dpg-crcggmrv2p9s73cfle6g-a/smart_brain_3c2u'
+    internalurl: 'postgresql://smart_brain_3c2u_user:27RQH4rnFIwagljwZdUwjyYYBsAuVVY1@dpg-crcggmrv2p9s73cfle6g-a/smart_brain_3c2u',
+    port: 53028
   }
 });
 
