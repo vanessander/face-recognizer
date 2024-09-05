@@ -3,7 +3,7 @@ const bodyParser = require('body-parser'); // latest version of exressJS now com
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex')
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 
 trx.commit();
