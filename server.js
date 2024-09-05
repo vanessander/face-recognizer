@@ -6,8 +6,6 @@ const knex = require('knex')
 const port = process.env.PORT || 4000;
 
 
-trx.commit();
-trx.rollback();
 const db = knex({
   client: 'pg',
   connection: {
