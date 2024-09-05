@@ -3,6 +3,8 @@ const bodyParser = require('body-parser'); // latest version of exressJS now com
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex')
+const port = process.env.PORT || 3000;
+
 
 const db = knex({
   client: 'pg',
@@ -103,6 +105,6 @@ app.put('/image', (req, res) => {
   .catch(err => res.status(400).json('unable to get entries'))
 })
 
-app.listen(process.env.PORT || 3000, ()=> {
-  console.log(`app is running on port ${process.env.PORT || 3000}`);
+app.listen(port, ()=> {
+  console.log(`app is running on port ${port}`);
 })
