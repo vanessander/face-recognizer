@@ -9,10 +9,10 @@ const port = process.env.PORT || 3000;
 const db = knex({
   client: 'pg',
   connection: {
-    host : 'postgresql://smart_brain_3c2u_user:27RQH4rnFIwagljwZdUwjyYYBsAuVVY1@dpg-crcggmrv2p9s73cfle6g-a.singapore-postgres.render.com/smart_brain_3c2u',
-    user : '',
-    password : '',
-    database : 'smart-brain'
+    host : 'postgresql://smart_brain_3c2u_user:27RQH4rnFIwagljwZdUwjyYYBsAuVVY1@dpg-crcggmrv2p9s73cfle6g-a/smart_brain_3c2u',
+    user : 'smart_brain_3c2u_user',
+    password : '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
+    database : 'smart_brain_3c2u'
   }
 });
 
