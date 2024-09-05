@@ -15,6 +15,20 @@ const db = knex({
     database: 'smart_brain_3c2u',
     port: port,
     ssl: { rejectUnauthorized: false }
+  }, 
+  pool: {
+    max: 50,
+    min: 2,
+    // acquireTimeout: 60 * 1000,
+    // createTimeoutMillis: 30000,
+    // acquireTimeoutMillis: 30000,
+    // idleTimeoutMillis: 30000,
+    // reapIntervalMillis: 1000,
+    // createRetryIntervalMillis: 100,
+    propagateCreateError: false // <- default is true, set to false
+  },
+  migrations: {
+    tableName: 'knex_migrations'
   }
 });
 
