@@ -6,16 +6,17 @@ const knex = require('knex')
 const port = process.env.PORT || 3000;
 
 
+trx.commit();
+trx.rollback();
 const db = knex({
   client: 'pg',
   connection: {
-    hostname : 'dpg-crcggmrv2p9s73cfle6g-a',
-    host : '10.210.35.181',
-    username : 'smart_brain_3c2u_user',
-    password : '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
-    database : 'smart_brain_3c2u',
-    internalurl: 'postgresql://smart_brain_3c2u_user:27RQH4rnFIwagljwZdUwjyYYBsAuVVY1@dpg-crcggmrv2p9s73cfle6g-a/smart_brain_3c2u',
-    port: 53028
+    host: 'dpg-crcggmrv2p9s73cfle6g-a.singapore-postgres.render.com',
+    user: 'smart_brain_3c2u_user',
+    password: '27RQH4rnFIwagljwZdUwjyYYBsAuVVY1',
+    database: 'smart_brain_3c2u',
+    port: 5432,
+    ssl: { rejectUnauthorized: false }
   }
 });
 
@@ -51,6 +52,8 @@ app.post('/signin', (req, res) => {
 app.post('/register', (req, res) => {
   const { email, name, password } = req.body;
   const hash = bcrypt.hashSync(password);
+    trx.commit();
+    trx.rollback();
     db.transaction(trx => {
       trx.insert({
         hash: hash,
