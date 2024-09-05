@@ -74,9 +74,15 @@ app.post('/register', (req, res) => {
           })
       })
       .then(trx.commit)
-      .catch(trx.rollback)
+      .catch(err => {
+        console.error(err); // Log errors
+        trx.rollback();
+      });
     })
-    .catch(err => res.status(400).json('unable to register'))
+    .catch(err => {
+      console.error(err); // Log errors
+      res.status(400).json('unable to register');
+    });
 })
 
 app.get('/profile/:id', (req, res) => {
