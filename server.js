@@ -5,7 +5,6 @@ const cors = require('cors');
 const knex = require('knex')
 
 const db = knex({
-  // Enter your own database information here based on what you created
   client: 'pg',
   connection: {
     host : '127.0.0.1',
@@ -104,6 +103,6 @@ app.put('/image', (req, res) => {
   .catch(err => res.status(400).json('unable to get entries'))
 })
 
-app.listen(3000, ()=> {
-  console.log('app is running on port 3000');
+app.listen(process.env.PORT || 3000, ()=> {
+  console.log(`app is running on port ${process.env.PORT || 3000}`);
 })
